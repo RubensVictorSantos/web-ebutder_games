@@ -1,0 +1,418 @@
+/* CSS */
+
+/* NOTAS: clear: both; = CANCELA O float DO ULTIMO ELEMENTO, PORQUE N QUERO QUE ESSA CAIXA FIQUE DO LADO DA ANTERIOR*/
+
+/* NOTAS: floa: left; = A PRIXIMA DIV PRECISA ESTAR AO LADO DESSA CAIXA, PORTANTO EU VOLTO A UTILIZAR O FLOAT, QUE TEM NADA HAVER COM AS CAIXAS ANTERIORES*/ 
+
+body, h1, h2, h3, h4, ul, li{
+    margin: 0px;
+    padding: 0px;
+}
+
+h1{
+	
+	width:100%;
+	height:100%;
+    font-family: sans-serif;
+    font-size: 25px;
+	font-weight: bold;
+}
+
+a:link{
+    text-decoration:none;
+    color:white;
+}
+
+a:visited{
+    color:white;
+}
+
+#body{
+    /* width: 100%; */
+    /* height: 100%; */
+    background-color: black;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#caixa_menu{
+    width: 100%;
+    height: 80px;
+    background-color: #000000;
+    position:fixed;
+}
+
+#menu{
+    width: 1200px;
+    height: inherit;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.item_menu{
+    width: 150px;
+    height: 50px;
+    float: left;
+	text-align:center;
+    box-sizing: border-box;
+    padding-top: 15px;
+    font-family: verdana;
+	/* background-color:rgba(255,99,71,0.2); */
+	margin:10px 20px 10px 20px;/*top right bottom left*/
+}
+
+#item_xbox:hover{
+	background-color:#39ac46;
+}
+
+#item_ps:hover{
+	background-color:#0052cc;
+}
+
+#item_nin:hover{
+	background-color:#ff3333;
+}
+
+#traduzir{
+	color:white;
+}
+
+.submenu{
+    width: 150px;
+    height: 100px;
+    background-color: black;
+    margin-top: -150px;
+    /* PARA OCULTAR A CAIXA DO SUBMENU */
+    opacity: 0;
+    visibility: hidden;
+}
+
+.item_submenu{
+    width: inherit;
+    height: 50px;
+    box-sizing: border-box;
+    padding-top: 11px;
+	color:white;
+}
+
+#subitem_xbox{
+	background-color:#39ac46;
+}
+
+#subitem_xbox:hover{
+	background-color:#2d8637;
+}
+
+#subitem_ps{
+	background-color:#0052cc;
+}
+
+#subitem_ps:hover{
+	background-color:#003d99;
+}
+
+#subitem_nin{
+	background-color:#ff3333;
+}
+
+#subitem_nin:hover{
+	background-color: #cc0000;
+}
+
+#icon-cart{
+	width:30px;
+	height:30px;
+	background-image:url(../imagens/shopping-cart.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+.item_menu:hover > .submenu{
+    
+    opacity: 1;
+    visibility: visible;
+    transition: 0.7s;
+    margin-top: 11px;
+}
+
+#logo{
+    width: 120px;
+    height: 160px;
+    
+    /* PERMITE SOBREPOR CAMADAS NO CSS */
+    position: absolute;
+    
+    /*
+        z-index: PERMITE ALTERAR A POSIÇÃO DAS DIVS.
+    POR EXEMPLO: UMA DIV QUE ESTA ATRAS FICAR NA FRENTE DE OUTRA DIV.
+    */
+    
+    margin-left: -80px;
+    margin-top: 50px;
+    
+}
+
+
+
+
+#header{
+    width: 100%;
+    height: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(../imagens/img_logo1.jpg);
+    /*background-attachment: fixed;*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    padding-top: 50px;
+}
+
+#caixa_header{
+    
+    width: 1200px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    padding-top: 70px;
+}
+
+#box_slogan{
+    width: 600px;
+    height: 300px;
+    background-color: rgba(0,0,0,0.5);
+    margin-left: auto;
+	margin-right: auto;
+    color: #ffffff;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top:80px;
+	box-sizing: border-box;
+}
+
+#titulo_slogan{
+	font-family: Algerian;
+	font-size: 40px;
+	box-sizing: border-box;
+}
+
+#slogan{
+	font-size: 27px;
+	line-height: 1.5;
+	box-sizing: border-box;
+	font-family: verdana;
+}
+
+/* EMPRESA */
+
+#empresa{
+    width: 100%;
+    height: 100%;
+}
+
+#caixa_empresa{
+    width: 1200px;
+    height: inherit;
+}
+
+.titulo_xbox{
+    width: inherit;
+    height: 50px;
+    box-sizing: border-box;
+	color:white;
+	padding-top:11px;
+	padding-left:555px;
+	background-color:#39ac46;/*VERDE*/
+}
+
+.titulo_ps4{
+    width: inherit;
+    height: 50px;
+    box-sizing: border-box;
+	color:white;
+	padding-top:11px;
+	padding-left:555px;
+	background-color:#0052cc;/*AZUL*/
+}
+
+.titulo_nin{
+    width: inherit;
+    height: 50px;
+    box-sizing: border-box;
+	color:white;
+	padding-top:11px;
+	padding-left:555px;
+	background-color:#ff3333;/*AZUL*/
+}
+
+.sessao{
+    width: inherit;
+    height:2620px;
+    background-color:white;
+	/* background-color:#0a0a0c;/*CINZAESCURO*/
+}
+
+.teste3{
+    width: inherit;
+    height: 420px;
+    background-color: #0a0a0c;
+    box-sizing: border-box;
+    padding-left: 50px;
+    padding-top: 15px;
+}
+
+.box_jogos{
+    height: 390px;
+	width: 250px;
+    float:left;
+	margin-left:20px;
+	padding:10px 10px 10px 10px;/*top right bottom left*/
+    box-sizing: border-box;
+	background-color: #f2f2f2;
+	border-radius: 2%;
+}
+
+.titulo_jogo{
+    height: 45px;
+    width: 230px;
+    color: black;
+	font-size:15spx;
+	font-family: sans-serif;
+    text-align: center;
+	background-color:white;
+    font-weight: bold;
+    box-sizing: border-box;
+	padding-top:1px;
+}
+
+.box_img{
+    height:295px;
+    width: 230px;
+    box-sizing: border-box;
+	/* background-color: #b3d9ff; */
+}
+
+.img{
+    width: inherit;
+    height: inherit;
+    box-sizing: border-box;
+}
+
+.preco_xbox{
+    height:30px;
+    width: 230;
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+	background-color: white;
+	color:#39ac46;
+	padding-top:7px;
+}
+
+.preco_ps4{
+    height:30px;
+    width: 230;
+    color: black;
+	font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+	background-color: white;
+	padding-top:7px;
+	color:#0052cc;
+}
+
+.preco_nin{
+    height:30px;
+    width: 230;
+    color: black;
+	font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+	background-color: white;
+	padding-top:7px;
+	color:#ff3333;
+}
+
+
+
+.ts{
+    height: 390px;
+    width: 250px;
+	font-family: sans-serif;
+    font-size: 20px;
+	font-weight: bold;
+	margin-left: -10px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+	padding-right:10px;
+    position: absolute;
+    background-color:rgba(0,0,0,0.4);
+    opacity:0;
+	text-align:center;
+    visibility:hidden;
+    box-sizing: border-box;
+	overflow: hidden
+}
+.descricao{
+	width:100%;
+	height:82%;
+	background-color:rgba(0,0,0,0.5);
+}
+.add_cart_xbox{
+	text-align:center;
+	margin-bottom:5px;
+	width:100%;
+	height:13%;
+	padding-top:10px;
+	background-color:#39ac46;
+	color:white;
+	box-sizing:border-box;
+	border-radius: 2%;
+}
+
+.add_cart_ps{
+	text-align:center;
+	margin-bottom:5px;
+	width:100%;
+	height:13%;
+	padding-top:10px;
+	background-color:#0052cc;
+	color:white;
+	box-sizing:border-box;
+	border-radius: 2%;
+}
+
+.add_cart_nin{
+	text-align:center;
+	margin-bottom:5px;
+	width:100%;
+	height:13%;
+	padding-top:10px;
+	background-color:#ff3333;
+	color:white;
+	box-sizing:border-box;
+	border-radius: 2%;
+}
+
+.box_jogos:hover > .ts{
+    
+    opacity:1;
+    margin-top: -380px;
+	margin-left: -10px;
+	color:white;
+    transition: 0.6s;
+    visibility: visible;
+    /* border-radius: 1%; */
+    color: white;
+}
