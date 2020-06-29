@@ -8,7 +8,7 @@ import Rotas from './routes.js';
 function App() {
   return (
     <>
-      <div className="d-flex w-100 flex-wrap justify-content-center bg-dark">
+      <div className="d-flex w-100 flex-wrap justify-content-center" style={{backgroundColor: "black"}}>
         <Rotas/>
       </div>
     </>
