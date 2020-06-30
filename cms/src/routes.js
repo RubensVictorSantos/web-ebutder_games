@@ -2,7 +2,7 @@ import React , {Component, Fragment } from 'react';
 import {BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { Cms } from './componentes/cms';
-import { CmsLogin } from './componentes/cms-login';
+import { CmsLogin } from './componentes/login-cms/cms-login';
 import { Cabecalho } from './componentes/cabecalho';
 import indexCMS from './componentes';
 

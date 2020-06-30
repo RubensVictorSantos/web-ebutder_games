@@ -5,7 +5,7 @@ import { Menu } from './menu';
 export class Cms extends Component {
     render(){
         return (
-            <div className="d-flex justify-content-center w-75 shadow-lg bg-dark" style={{minHeight:"100vh"}}>
+            <div className="d-flex justify-content-center w-75 shadow-lg" style={{minHeight:"100vh"}}>
                 <Menu/>
             
             </div>

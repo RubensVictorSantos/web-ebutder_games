@@ -1,6 +1,72 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react'
+import $ from 'jquery';
+import PropTypes from 'prop-types';
 
-export class indexCMS extends Component {
+import CmsLogin from './login-cms/cms-login'
+
+//ARMAZENA OS ESTADOS INICIAIS
+const initialState = {
+    usuario: {
+        id_login: '',
+        nome: '',
+        senha: '',
+    },
+}
+
+
+
+class indexCMS extends Component {
+
+    //STATE ESTÁ RECEBENDO OS ESTADOS INICIAIS
+    state = { ...initialState }
+
+    //PROPRIEDADES DO WITH ROUTER
+    static propTypes = {
+        match: PropTypes.object.isRequired,
+        location: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired
+    };
+
+    async enviaFormulario() {
+
+        const usuario = { ...this.state.usuario }
+
+        const url = `${DOMINIO}/login/restaurante`;
+
+        const email = this.state.restaurante.email;
+
+        const senha = this.state.restaurante.senha;
+
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: JSON.stringify({ "email": email, "password": senha }),
+            dataType: 'json',
+            contentType: "application/json",
+            success: function (resposta) {
+
+                if (resposta.error) {
+
+                    Notificacao(ERRO, USUARIO_INVALIDO);
+                } else {
+
+                    localStorage.setItem(TOKEN_KEY, resposta.token);
+
+                    this.props.history.push("/restaurante");
+
+                }
+
+
+            }.bind(this),
+            error: function (data) {
+
+                Notificacao(ERRO, ERRO_REQUISICAO);
+
+            }
+        });
+    }
+
+
     render() {
         return (
             <Fragment>
@@ -32,25 +98,7 @@ export class indexCMS extends Component {
                     </div>
                 </nav>
                 {/* <!-- Modal --> */}
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <CmsLogin/>
             </Fragment>
         )
     }
