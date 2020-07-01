@@ -31,28 +31,29 @@ class indexCMS extends Component {
 
         const usuario = { ...this.state.usuario }
 
-        const url = `${DOMINIO}/login/restaurante`;
+        const url = `localhost:3333/login`;
 
-        const email = this.state.restaurante.email;
+        const nome = this.state.usuario.nome;
 
-        const senha = this.state.restaurante.senha;
+        const senha = this.state.usuario.senha;
 
         $.ajax({
             url: url,
             type: 'post',
-            data: JSON.stringify({ "email": email, "password": senha }),
+            data: JSON.stringify({ "nome": nome, "password": senha }),
             dataType: 'json',
             contentType: "application/json",
             success: function (resposta) {
 
                 if (resposta.error) {
 
-                    Notificacao(ERRO, USUARIO_INVALIDO);
+                    console.log("Nome ou senha incorreto");
+                    alert("Nome ou senha incorreto");
                 } else {
 
-                    localStorage.setItem(TOKEN_KEY, resposta.token);
+                    // localStorage.setItem(TOKEN_KEY, resposta.token);
 
-                    this.props.history.push("/restaurante");
+                    this.props.history.push("/cms");
 
                 }
 
@@ -60,7 +61,8 @@ class indexCMS extends Component {
             }.bind(this),
             error: function (data) {
 
-                Notificacao(ERRO, ERRO_REQUISICAO);
+                console.log("Erro login");
+                alert("Erro login");
 
             }
         });
