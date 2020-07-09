@@ -12,3 +12,5 @@ export class Cms extends Component {
         )
     }
 }
+
+export default Cms

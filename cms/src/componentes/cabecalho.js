@@ -10,3 +10,5 @@ export class Mainbody extends Component {
         )
     }
 }
+
+export default Mainbody;

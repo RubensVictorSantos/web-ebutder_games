@@ -1,42 +1,63 @@
 import React, { Component } from 'react';
 import 'bootstrap';
 import $ from 'jquery';
+import PropTypes from "prop-types";
 
 export class CmsLogin extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
 
-        this.state = {email: '', senha: ''}
+        this.state = { email: '', senha: '' }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
+
     }
 
-    logar(e){
+    static propTypes = {
+        
+        history: PropTypes.object.isRequired
+    };
 
-        const url = 'localhost:3333/login';
+
+
+
+    handleChange(event) {
+        this.setState({ [event.target.name]: event.target.value });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+
+        const url = 'http://localhost:3333/login';
         const email = this.state.email
         const senha = this.state.senha
 
         $.ajax({
             url: url,
             type: 'post',
-            data: JSON.stringify({ "email": email, "password": senha }),
+            data: JSON.stringify({ "email": email, "senha": senha }),
             dataType: 'json',
-            success: function (resposta) {
-            
-                alert(resposta);
+            contentType: 'application/json',
+            success: function (res) {
+
+                this.props.history.push("/");
 
             }.bind(this),
             error: function (data) {
 
-                alert(data)
+                alert("Error: " + data)
             }
         })
+
     }
 
     render() {
         return (
             <>
-                <div className="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal fade " id="exampleModal" tabIndex={"-1"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog ">
                         <div className="modal-content bg-dark m-auto w-75">
                             <div className="modal-header border-0">
@@ -45,19 +66,19 @@ export class CmsLogin extends Component {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form className="">
+                            <form onSubmit={this.handleSubmit} className="">
                                 <div className="modal-body pb-0">
                                     <div className="form-group">
-                                        <input className="border-secondary form-control bg-dark text-white text-center" name="email" id="email" type="text" placeholder="Usuário" required />
+                                        <input value={this.state.email} onChange={this.handleChange} className="border-secondary form-control bg-dark text-white text-center" name="email" id="email" type="text" placeholder="Usuário" required />
                                     </div>
 
                                     <div className="form-group">
-                                        <input className="border-secondary form-control bg-dark text-white text-center" type="password" placeholder="Senha" required />
+                                        <input value={this.state.senha} onChange={this.handleChange} className="border-secondary form-control bg-dark text-white text-center" name="senha" type="password" placeholder="Senha" required />
 
                                     </div>
 
                                     <div className="form-check text-center">
-                                        <input className="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." /> <label for="blankCheckbox" className="text-secondary">Lembrar senha</label>
+                                        <input className="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." /> <label htmlFor="blankCheckbox" className="text-secondary">Lembrar senha</label>
                                     </div>
                                 </div>
                                 <div className="modal-footer border-0">
@@ -68,10 +89,9 @@ export class CmsLogin extends Component {
                     </div>
                 </div>
             </>
-
         )
     }
 }
 
 
-export default CmsLogin
+export default CmsLogin;

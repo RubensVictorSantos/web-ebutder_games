@@ -1,7 +1,6 @@
 import React , {Component, Fragment } from 'react';
 import {BrowserRouter, Switch, Route } from 'react-router-dom';
-import { CmsLogin } from './componentes/login-cms/cms-login';
-import { Mainbody } from './componentes/cabecalho';
+import { Cms } from './componentes/cms';
 import indexCMS from './componentes';
 
 export class  Rotas extends Component{
@@ -9,12 +8,12 @@ export class  Rotas extends Component{
         return(
             <BrowserRouter>
                 <Switch>
+
+                    <Route path="/" exact component={indexCMS}/>
+
                     <Route path="/cms" render={({ match: { url } }) => (
                             <Fragment>
-
-                                <Route path={`${url}/`} exact component={indexCMS} />
-                                <Mainbody/>
-                                <Route path={`${url}/login`} component={CmsLogin} />
+                                <Route path={`${url}/`} component={Cms} />
                             </Fragment>
                         )}                   
                     />
