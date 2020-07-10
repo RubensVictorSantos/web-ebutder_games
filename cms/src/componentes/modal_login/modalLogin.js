@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import 'bootstrap';
 import $ from 'jquery';
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
-export class CmsLogin extends Component {
+const initialState = {
+    usuario: { id_nivel: '', nome: '', email: '', senha: '' }
+}
+
+
+export class LoginCms extends Component {
 
     constructor(props) {
         super(props)
-
-        this.state = { email: '', senha: '' }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,24 +19,23 @@ export class CmsLogin extends Component {
 
     }
 
-    static propTypes = {
-        
-        history: PropTypes.object.isRequired
-    };
-
-
-
+    state = { ...initialState}
 
     handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value });
+
+        const usuario = { ...this.state.usuario}
+
+        usuario[event.target.name] = event.target.value;
+        
+        this.setState({ usuario });
     }
 
     handleSubmit(event) {
         event.preventDefault();
 
         const url = 'http://localhost:3333/login';
-        const email = this.state.email
-        const senha = this.state.senha
+        const email = this.state.usuario.email
+        const senha = this.state.usuario.senha
 
         $.ajax({
             url: url,
@@ -43,9 +45,11 @@ export class CmsLogin extends Component {
             contentType: 'application/json',
             success: function (res) {
 
-                this.props.history.push("/");
+                alert()
 
-            }.bind(this),
+                // this.props.history.push("/");
+
+            },
             error: function (data) {
 
                 alert("Error: " + data)
@@ -69,11 +73,11 @@ export class CmsLogin extends Component {
                             <form onSubmit={this.handleSubmit} className="">
                                 <div className="modal-body pb-0">
                                     <div className="form-group">
-                                        <input value={this.state.email} onChange={this.handleChange} className="border-secondary form-control bg-dark text-white text-center" name="email" id="email" type="text" placeholder="Usuário" required />
+                                        <input value={this.state.usuario.email} onChange={this.handleChange} className="border-secondary form-control bg-dark text-white text-center" name="email" id="email" type="text" placeholder="Usuário" required />
                                     </div>
 
                                     <div className="form-group">
-                                        <input value={this.state.senha} onChange={this.handleChange} className="border-secondary form-control bg-dark text-white text-center" name="senha" type="password" placeholder="Senha" required />
+                                        <input value={this.state.usuario.senha} autoComplete={'on'} onChange={this.handleChange} className="border-secondary form-control bg-dark text-white text-center" name="senha" type="password" placeholder="Senha" required />
 
                                     </div>
 
@@ -94,4 +98,4 @@ export class CmsLogin extends Component {
 }
 
 
-export default CmsLogin;
+export default LoginCms;

@@ -1,7 +1,7 @@
 import React , {Component, Fragment } from 'react';
 import {BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Cms } from './componentes/cms';
-import indexCMS from './componentes';
+import Menu from './componentes/menu/menu'
+import IndexCms from './componentes/corpo/indexCms'
 
 export class  Rotas extends Component{
     render(){
@@ -9,11 +9,12 @@ export class  Rotas extends Component{
             <BrowserRouter>
                 <Switch>
 
-                    <Route path="/" exact component={indexCMS}/>
+                    {/* <Route path="/" exact component={cms}/> */}
 
-                    <Route path="/cms" render={({ match: { url } }) => (
+                    <Route path="/" render={({ match: { url } }) => (
                             <Fragment>
-                                <Route path={`${url}/`} component={Cms} />
+                                <Menu/>
+                                <Route path={`${url}/`} component={IndexCms} />
                             </Fragment>
                         )}                   
                     />
