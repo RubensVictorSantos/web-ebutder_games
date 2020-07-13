@@ -19,6 +19,8 @@ export class LoginCms extends Component {
 
     }
 
+    
+
     state = { ...initialState}
 
     handleChange(event) {
@@ -29,6 +31,8 @@ export class LoginCms extends Component {
         
         this.setState({ usuario });
     }
+
+    
 
     handleSubmit(event) {
         event.preventDefault();
@@ -43,11 +47,11 @@ export class LoginCms extends Component {
             data: JSON.stringify({ "email": email, "senha": senha }),
             dataType: 'json',
             contentType: 'application/json',
-            success: function (res) {
-
-                alert()
-
-                // this.props.history.push("/");
+            success: function (result,request) {
+                
+                let usuario={nome: result.nome, email: result.email, id_nivel: result.id_nivel} 
+                
+                localStorage.setItem('usuario', JSON.stringify(usuario))
 
             },
             error: function (data) {

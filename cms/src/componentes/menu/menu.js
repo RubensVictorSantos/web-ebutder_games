@@ -39,6 +39,9 @@ export class Menu extends Component {
                         <li className="nav-item">
                             <Link className="nav-link" to="#">Sobre</Link>
                         </li>
+                        <li className="vav-item">
+                            <h1>{this.state.usuario.nome}</h1>
+                        </li>
                     </ul>
                     {/* <!-- Button trigger modal --> */}
                     <button type="button" className="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
@@ -51,8 +54,7 @@ export class Menu extends Component {
                 </div>
             </nav>
 
-            <LoginCms/>
-
+            <LoginCms />
             </>
         )
     }
