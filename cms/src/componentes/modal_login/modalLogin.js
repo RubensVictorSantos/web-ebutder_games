@@ -19,20 +19,17 @@ export class LoginCms extends Component {
 
     }
 
-    
-
-    state = { ...initialState}
+    state = { ...initialState }
 
     handleChange(event) {
 
-        const usuario = { ...this.state.usuario}
+        const usuario = { ...this.state.usuario }
 
         usuario[event.target.name] = event.target.value;
-        
-        this.setState({ usuario });
-    }
 
-    
+        this.setState({ usuario });
+
+    }
 
     handleSubmit(event) {
         event.preventDefault();
@@ -47,16 +44,22 @@ export class LoginCms extends Component {
             data: JSON.stringify({ "email": email, "senha": senha }),
             dataType: 'json',
             contentType: 'application/json',
-            success: function (result,request) {
-                
-                let usuario={nome: result.nome, email: result.email, id_nivel: result.id_nivel} 
-                
+            success: function (result, status) {
+
+                let usuario = {
+                    nome: result.nome,
+                    email: result.email,
+                    id_nivel: result.id_nivel
+                }
+
                 localStorage.setItem('usuario', JSON.stringify(usuario))
 
+                $('#modalLogin').modal('hide')
             },
-            error: function (data) {
+            error: function (data, status) {
 
-                alert("Error: " + data)
+                alert(" Erro! ")
+
             }
         })
 
@@ -65,7 +68,7 @@ export class LoginCms extends Component {
     render() {
         return (
             <>
-                <div className="modal fade " id="exampleModal" tabIndex={"-1"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal fade " id="modalLogin" tabIndex={"-1"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog ">
                         <div className="modal-content bg-dark m-auto w-75">
                             <div className="modal-header border-0">
@@ -77,7 +80,7 @@ export class LoginCms extends Component {
                             <form onSubmit={this.handleSubmit} className="">
                                 <div className="modal-body pb-0">
                                     <div className="form-group">
-                                        <input value={this.state.usuario.email} onChange={this.handleChange} className="border-secondary form-control bg-dark text-white text-center" name="email" id="email" type="text" placeholder="Usuário" required />
+                                        <input value={this.state.usuario.email} onChange={this.handleChange} className="border-secondary form-control bg-dark text-white text-center" name="email" id="email" type="email" placeholder="Usuário" required />
                                     </div>
 
                                     <div className="form-group">
