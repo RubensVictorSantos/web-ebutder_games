@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import 'bootstrap';
 import $ from 'jquery';
-// import PropTypes from "prop-types";
 
 const initialState = {
     usuario: { id_nivel: '', nome: '', email: '', senha: '' }
 }
-
 
 export class LoginCms extends Component {
 
@@ -14,8 +12,7 @@ export class LoginCms extends Component {
         super(props)
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-
+        this.enviarFormulario = this.enviarFormulario.bind(this);
 
     }
 
@@ -31,34 +28,37 @@ export class LoginCms extends Component {
 
     }
 
-    handleSubmit(event) {
+    async enviarFormulario(event) {
         event.preventDefault();
 
         const url = 'http://localhost:3333/login';
-        const email = this.state.usuario.email
-        const senha = this.state.usuario.senha
+        const {senha, email} = this.state.usuario
+
+        // verify(){
+
+        // }
 
         $.ajax({
             url: url,
             type: 'post',
             data: JSON.stringify({ "email": email, "senha": senha }),
+            header: 'x-access-token',
             dataType: 'json',
             contentType: 'application/json',
-            success: function (result, status) {
+            success: (result) => { 
 
-                let usuario = {
-                    nome: result.nome,
-                    email: result.email,
-                    id_nivel: result.id_nivel
-                }
+                const { usuario, token, auth} = result
 
-                localStorage.setItem('usuario', JSON.stringify(usuario))
+                localStorage.setItem('usuario', JSON.stringify(usuario));
+                localStorage.setItem('token', JSON.stringify(token));
+                localStorage.setItem('auth', JSON.stringify(auth));
 
                 $('#modalLogin').modal('hide')
-            },
-            error: function (data, status) {
 
-                alert(" Erro! ")
+            },
+            error: ( status) =>{
+
+                alert(status)
 
             }
         })
@@ -66,6 +66,7 @@ export class LoginCms extends Component {
     }
 
     render() {
+        const {senha, email} = this.state.usuario
         return (
             <>
                 <div className="modal fade " id="modalLogin" tabIndex={"-1"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -77,14 +78,14 @@ export class LoginCms extends Component {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form onSubmit={this.handleSubmit} className="">
+                            <form onSubmit={this.enviarFormulario}>
                                 <div className="modal-body pb-0">
                                     <div className="form-group">
-                                        <input value={this.state.usuario.email} onChange={this.handleChange} className="border-secondary form-control bg-dark text-white text-center" name="email" id="email" type="email" placeholder="Usuário" required />
+                                        <input value={email} onChange={this.handleChange} className="border-secondary form-control bg-dark text-white text-center" name="email" id="email" type="email" placeholder="Usuário" required />
                                     </div>
 
                                     <div className="form-group">
-                                        <input value={this.state.usuario.senha} autoComplete={'on'} onChange={this.handleChange} className="border-secondary form-control bg-dark text-white text-center" name="senha" type="password" placeholder="Senha" required />
+                                        <input value={senha} onChange={this.handleChange} autoComplete={'on'} className="border-secondary form-control bg-dark text-white text-center" name="senha" type="password" placeholder="Senha" required />
 
                                     </div>
 

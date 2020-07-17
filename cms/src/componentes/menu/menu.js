@@ -17,10 +17,17 @@ export class Menu extends Component {
     
     }
 
+    pegarLocalStorage(){
+        const user = localStorage.getItem('usuario')
+
+        alert(user)
+
+    }
+
     render() {
         return (
             <>
-            <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+            <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -54,7 +61,7 @@ export class Menu extends Component {
                 </div>
             </nav>
 
-            <LoginCms />
+            <LoginCms/>
             </>
         )
     }
@@ -63,7 +70,7 @@ export class Menu extends Component {
 export class MenuCms extends Component {
     render() {
         return(
-            <nav className="navbar navbar-dark navbar-expand-lg w-100 top-0 position-fixed" style={{ minHeight: "8vh", backgroundColor: "#000" }}>
+            <nav className="navbar navbar-dark navbar-expand-lg top-0 position-fixed" style={{ minHeight: "8vh", backgroundColor: "#000" }}>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
