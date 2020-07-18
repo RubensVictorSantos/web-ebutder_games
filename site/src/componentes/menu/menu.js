@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import React, { Component } from 'react';
 import NavBar, {
     LinkMenu,
@@ -19,46 +20,46 @@ class Menu extends Component {
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="w-100 d-flex justify-content-around navbar-nav mr-auto ">
-                            <a className="navbar-brand text-white" href="#">HOME</a>
+                            <Link className="navbar-brand text-white" to="#">HOME</Link>
                             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>
 
                             <LiXbox className="nav-item dropdown" >
-                                <LinkXbox className="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <LinkXbox className="nav-link text-white dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     XBOX
                                 </LinkXbox>
-                                <DropdownMenu className="p-0 dropdown-menu rounded-0" aria-labelledby="navbarDropdown">
-                                    <LinkXbox className="dropdown-item text-white" href="#">XBOX 360</LinkXbox>
-                                    <LinkXbox className="dropdown-item text-white" href="#">XBOX ONE</LinkXbox>
+                                <DropdownMenu className="p-0 dropdown-menu rounded-0" ariaLabelledby={"navbarDropdown"}>
+                                    <LinkXbox className="dropdown-item text-white" to="#">XBOX 360</LinkXbox>
+                                    <LinkXbox className="dropdown-item text-white" to="#">XBOX ONE</LinkXbox>
                                 </DropdownMenu>
                             </LiXbox>
                             <LiPs className="nav-item dropdown">
-                                <LinkPs className="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <LinkPs className="nav-link text-white dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     PLAYSTATION
                                 </LinkPs>
                                 <DropdownMenu className="dropdown-menu  rounded-0" aria-labelledby="navbarDropdown">
-                                    <LinkPs className="dropdown-item  text-white" href="#">PS5</LinkPs>
-                                    <LinkPs className="dropdown-item  text-white" href="#">PS4</LinkPs>
-                                    <LinkPs className="dropdown-item  text-white" href="#">PS3</LinkPs>
+                                    <LinkPs className="dropdown-item  text-white" to="#">PS5</LinkPs>
+                                    <LinkPs className="dropdown-item  text-white" to="#">PS4</LinkPs>
+                                    <LinkPs className="dropdown-item  text-white" to="#">PS3</LinkPs>
                                 </DropdownMenu>
                             </LiPs>
                             <LiNin className="nav-item dropdown">
-                                <LinkNin className="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <LinkNin className="nav-link text-white dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     NINTENDO
                                 </LinkNin>
                                 <DropdownMenu className="dropdown-menu rounded-0 " aria-labelledby="navbarDropdown">
-                                    <LinkNin className="dropdown-item  text-white" href="#">WII</LinkNin>
-                                    <LinkNin className="dropdown-item  text-white" href="#">WII U</LinkNin>
+                                    <LinkNin className="dropdown-item  text-white" to="#">WII</LinkNin>
+                                    <LinkNin className="dropdown-item  text-white" to="#">WII U</LinkNin>
                                 </DropdownMenu>
                             </LiNin>
                             <LiMenu className="nav-item dropdown">
-                                <LinkMenu className="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <LinkMenu className="nav-link text-white dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     TRADUZIR
                                 </LinkMenu>
                                 <DropdownMenu className="dropdown-menu rounded-0" aria-labelledby="navbarDropdown">
-                                    <LinkMenu className="dropdown-item text-white" href="#">PT-BR</LinkMenu>
-                                    <LinkMenu className="dropdown-item text-white" href="#">EN</LinkMenu>
+                                    <LinkMenu className="dropdown-item text-white" to="#">PT-BR</LinkMenu>
+                                    <LinkMenu className="dropdown-item text-white" to="#">EN</LinkMenu>
                                 </DropdownMenu>
                             </LiMenu>
                             <LiMenu>

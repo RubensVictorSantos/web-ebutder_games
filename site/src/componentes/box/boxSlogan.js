@@ -8,7 +8,7 @@ export class ContainerHeader extends Component {
     render() {
 
         return (
-            <HeaderIndex className="d-flex justify-content-center align-items-center    ">
+            <HeaderIndex className="d-flex justify-content-center align-items-center">
                 <ImgHeader src={imagemLogo} />
                 <div className="d-flex justify-content-center position-absolute w-75">
                     <div className="d-flex w-75 p-5 flex-column text-white text-center" style={{backgroundColor: "rgba(0,0,0,0.5)"}}>
