@@ -1,22 +1,13 @@
 import styled from 'styled-components'
 
-export const conteudoConsole = styled.div`
-    // max-height: 420px;
-    // box-sizing: border-box;
-`
-
 export const BoxJogos = styled.div`
-    height: 390px;
-	width: 250px;
-	margin-left:20px;
-    box-sizing: border-box;
 	background-color: #f2f2f2;
 	border-radius: 2%;
 `
 
 export const TituloJogo = styled.div`
     height: 45px;
-    width: 230px;
+    max-width: 230px;
     color: black;
 	font-size:15px;
 	font-family: sans-serif;
@@ -24,34 +15,28 @@ export const TituloJogo = styled.div`
 	background-color:white;
     font-weight: bold;
     box-sizing: border-box;
-	// padding-top:1px;
 `
 
-// .box_img{
-//     height:295px;
-//     width: 230px;
-//     box-sizing: border-box;
-// 	/* background-color: #b3d9ff; */
-// }
+export const BoxImg = styled.div`
+    height:295px;
+    width: 230px;
+`
 
-// .img{
-//     width: inherit;
-//     height: inherit;
-//     box-sizing: border-box;
-// }
+export const Img = styled.img`
+    width: inherit;
+    height: inherit;
+`
 
-// .preco_xbox{
-//     height:30px;
-//     width: 230;
-//     color: black;
-//     font-family: sans-serif;
-//     text-align: center;
-//     font-weight: bold;
-//     box-sizing: border-box;
-// 	background-color: white;
-// 	color:#39ac46;
-// 	padding-top:7px;
-// }
+export const PrecoXbox = styled.div`
+    height:30px;
+    width: 230px;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+	background-color: white;
+	color:#39ac46;
+	padding-top:7px;
+`
 
 // .ts{
 //     height: 390px;
@@ -101,4 +86,4 @@ export const TituloJogo = styled.div`
 //     color: white;
 // }
 
-export default conteudoConsole
+export default BoxJogos

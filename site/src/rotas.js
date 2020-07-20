@@ -12,7 +12,7 @@ export class  Rotas extends Component{
                 <Switch>
                     <Route path="/" render={({ match: { url } }) => (
                         <Fragment>
-                            <Menu/>
+                            {/* <Menu/> */}
                             <Route path={`${url}/`} component={ConteudoIndex} />
 
                         </Fragment>

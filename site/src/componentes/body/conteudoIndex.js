@@ -8,14 +8,16 @@ class ConteudoIndex extends Component {
 
     constructor(props) {
         super(props)
-
+        this.state = { allconsoles: []}
     }
 
     state = '';
 
     componentDidMount() {
 
-        const url = 'http://localhost:3333/allConsoles';
+        this.setState({ allconsoles: []})
+
+        const url = 'http://localhost:3333/consolesOn';
 
         $.ajax({
             url: url,
@@ -24,10 +26,7 @@ class ConteudoIndex extends Component {
             contentType: 'application/json',
             success: (result) => {
 
-                let allconsoles = JSON.stringify(result[0])
-
-                alert(allconsoles)
-                this.setState({ allconsoles })
+                this.setState({ allconsoles: result })
             },
             error: (status) => {
 
@@ -39,12 +38,12 @@ class ConteudoIndex extends Component {
     }
 
     render() {
-        const consoles = this.state.allconsoles
-
         return (
             <>
-                <ContainerHeader />
-                <ContainerConteudo id="containerConteudo" consoles={consoles} />
+                {/* <ContainerHeader /> */}
+                {this.state.allconsoles.map( console => (
+                    <ContainerConteudo console={console} />
+                ))}
             </>
         )
     }
