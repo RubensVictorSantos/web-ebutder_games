@@ -6,8 +6,8 @@ import ContainerConteudo from './containerConteudo';
 
 class ConteudoIndex extends Component {
 
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.state = { allconsoles: []}
     }
 
@@ -42,7 +42,7 @@ class ConteudoIndex extends Component {
             <>
                 {/* <ContainerHeader /> */}
                 {this.state.allconsoles.map( console => (
-                    <ContainerConteudo console={console} />
+                    <ContainerConteudo key={console.id_console} console={console}/>
                 ))}
             </>
         )

@@ -1,11 +1,6 @@
-import Styled from 'styled-components'
+import styled from 'styled-components'
 
-// .titulo_xbox{
-//     width: inherit;
-//     height: 50px;
-//     box-sizing: border-box;
-// 	color:white;
-// 	padding-top:11px;
-// 	padding-left:555px;
-// 	background-color:#39ac46;/*VERDE*/
-// }
+export const TituloSession = styled.h1`
+    background-color: ${props => props.theme || "black"};
+`
+export default TituloSession
