@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import $ from 'jquery'
 /*+++++++++++++++ */
-import ContainerHeader from '../box/boxSlogan';
-import ContainerConteudo from './containerConteudo';
+import Menu from './head/menu/menu'
+import ContainerHeader from './head/boxSlogan';
+import ContainerConteudo from './body/secao_conteudo/containerConteudo';
 
-class ConteudoIndex extends Component {
+class ComponentMain extends Component {
 
     constructor() {
         super()
@@ -39,14 +40,15 @@ class ConteudoIndex extends Component {
 
     render() {
         return (
-            <>
-                {/* <ContainerHeader /> */}
+            <Fragment>
+                <Menu/>
+                <ContainerHeader />
                 {this.state.allconsoles.map( console => (
                     <ContainerConteudo key={console.id_console} console={console}/>
                 ))}
-            </>
+            </Fragment>
         )
     }
 }
 
-export default ConteudoIndex
+export default ComponentMain

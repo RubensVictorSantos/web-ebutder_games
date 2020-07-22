@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ImgNotFound from '../../../imagens/not-found.jpg'
+
 
 import {
     BoxJogos,
@@ -9,7 +11,7 @@ import {
     InfoBox
 } from './styled'
 
-class ConsoleXbox extends Component {
+class CardJogo extends Component {
 
     constructor(props) {
         super(props)
@@ -18,7 +20,7 @@ class ConsoleXbox extends Component {
 
     componentDidMount(){
 
-        alert(this.state.jogo)
+        // console.log(this.state.jogo)
     }
 
     render() {
@@ -31,10 +33,9 @@ class ConsoleXbox extends Component {
                 <TituloJogo className="d-flex justify-content-center align-items-center">
                     {nome}
                 </TituloJogo>
-                <BoxImg>
-                    {/* <Img src={imagem}/> */}
-                    <img src={imagem}/>
-                </BoxImg>
+                <img src={imagem === null ? ImgNotFound: imagem} height="295px"   width="230px"
+                     alt={"Imagem do jogo " + nome}
+                />
 
                 <PrecoXbox theme={theme} className="text-center font-weight-bold">{preco}</PrecoXbox>
 
@@ -50,4 +51,4 @@ class ConsoleXbox extends Component {
 
 }
 
-export default ConsoleXbox
+export default CardJogo

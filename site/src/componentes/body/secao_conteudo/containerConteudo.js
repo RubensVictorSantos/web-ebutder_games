@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import $ from 'jquery';
 
 import TituloSession from './styled'
-import ConsoleXbox from "./container_jogos/xbox"
+import CardJogo from "../card_jogo/CardJogo";
 
 export class ContainerConteudo extends Component {
 
@@ -68,7 +68,7 @@ export class ContainerConteudo extends Component {
                 </div>
                 <div className="d-flex flex-wrap justify-content-center p-2">
                     {this.state.jogos.map(jogo => (
-                        <ConsoleXbox key={jogo.id_jogo} jogo={jogo} theme={theme}/>
+                        <CardJogo key={jogo.id_jogo} jogo={jogo} theme={theme}/>
                     ))}
 
                 </div>

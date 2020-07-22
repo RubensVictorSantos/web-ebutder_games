@@ -1,8 +1,7 @@
 import React , {Component, Fragment } from 'react';
 import {BrowserRouter, Switch, Route } from 'react-router-dom';
-import Menu from './componentes/menu/menu';
-import ConteudoIndex from './componentes/body/conteudoIndex';
-/* -------------------------- */
+
+import ComponentMain from './componentes/componentMain';
 
 
 export class  Rotas extends Component{
@@ -12,8 +11,7 @@ export class  Rotas extends Component{
                 <Switch>
                     <Route path="/" render={({ match: { url } }) => (
                         <Fragment>
-                            {/* <Menu/> */}
-                            <Route path={`${url}/`} component={ConteudoIndex} />
+                            <Route path={`${url}/`} component={ComponentMain} />
 
                         </Fragment>
                     )}/>

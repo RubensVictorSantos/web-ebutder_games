@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+export const color = {greenXbox: "", redNintendo: ""} 
+
 export const InfoBox = styled.div`
     height: 390px;
     width: 250px;
@@ -46,16 +48,6 @@ export const TituloJogo = styled.div`
 	background-color:white;
     font-weight: bold;
     box-sizing: border-box;
-`
-
-export const BoxImg = styled.div`
-    height:295px;
-    width: 230px;
-`
-
-export const Img = styled.img`
-    width: 100%;
-    height: 100%;
 `
 
 export const PrecoXbox = styled.div`
