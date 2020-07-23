@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {LinkMenu, DropdownMenu} from './style';
+import {LinkMenu, DropdownMenu} from './styled';
 
 export class ItemMenu extends Component {
     render() {

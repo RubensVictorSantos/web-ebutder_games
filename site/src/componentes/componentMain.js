@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import $ from 'jquery'
 /*+++++++++++++++ */
 import Menu from './head/menu/menu'
-import ContainerHeader from './head/boxSlogan';
+import ContainerHeader from './head/containerHeader';
 import ContainerConteudo from './body/secao_conteudo/containerConteudo';
 
 class ComponentMain extends Component {
@@ -42,10 +42,10 @@ class ComponentMain extends Component {
         return (
             <Fragment>
                 <Menu/>
-                <ContainerHeader />
-                {this.state.allconsoles.map( console => (
+                {/* <ContainerHeader /> */}
+                {/* {this.state.allconsoles.map( console => (
                     <ContainerConteudo key={console.id_console} console={console}/>
-                ))}
+                ))} */}
             </Fragment>
         )
     }
