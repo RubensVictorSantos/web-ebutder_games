@@ -1,22 +1,20 @@
 import React, { Component, Fragment } from 'react';
 import $ from 'jquery'
 /*+++++++++++++++ */
-import Menu from './head/menu/menu'
 import ContainerHeader from './head/containerHeader';
 import ContainerConteudo from './body/secao_conteudo/containerConteudo';
+import NavBar from './head/menu/navBar';
 
 class ComponentMain extends Component {
 
     constructor() {
         super()
-        this.state = { allconsoles: []}
+        this.state = { allconsoles: [] }
     }
-
-    state = '';
 
     componentDidMount() {
 
-        this.setState({ allconsoles: []})
+        this.setState({ allconsoles: [] })
 
         const url = 'http://localhost:3333/consolesOn';
 
@@ -41,11 +39,14 @@ class ComponentMain extends Component {
     render() {
         return (
             <Fragment>
-                <Menu/>
-                {/* <ContainerHeader /> */}
-                {/* {this.state.allconsoles.map( console => (
-                    <ContainerConteudo key={console.id_console} console={console}/>
-                ))} */}
+                <NavBar />
+                <ContainerHeader />
+                {
+                    this.state.allconsoles.map(console => (
+                        <ContainerConteudo key={console.id_console} console={console} />
+                    ))
+                }
+
             </Fragment>
         )
     }
