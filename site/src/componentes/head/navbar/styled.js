@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const LinkNav = styled.a` 
+export const LinkNav = styled(Link)`
     color: white;
 
     :hover {

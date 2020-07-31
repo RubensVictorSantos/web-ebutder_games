@@ -1,51 +1,46 @@
 import React, { Component } from 'react';
+// ----------------------
+import PASTA_IMG from '../../../links_config'
 import ImgNotFound from '../../../imagens/not-found.jpg'
-
-
 import {
-    BoxJogos,
-    TituloJogo,
-    BoxImg,
-    Img,
-    PrecoXbox,
-    InfoBox
+    Card,
+    TituloCard,
+    PrecoCard,
+    InfoCard,
+    DescricaoCard,
+    AddCart,
+    ImgCard
 } from './styled'
 
 class CardJogo extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { jogo: props.jogo }
-    }
-
-    componentDidMount(){
-
-        // console.log(this.state.jogo)
+        this.state = { jogo: this.props.jogo }
     }
 
     render() {
 
-        const { nome, imagem, preco } = this.state.jogo;
+        const { nome, imagem, preco, descricao } = this.state.jogo;
         const theme = this.props.theme;
 
         return (
-            <BoxJogos className="d-flex p-2 m-2 flex-column justify-content-center">
-                <TituloJogo className="d-flex justify-content-center align-items-center">
-                    {nome}
-                </TituloJogo>
-                <img src={imagem === null ? ImgNotFound: imagem} height="295px"   width="230px"
-                     alt={"Imagem do jogo " + nome}
-                />
+            <Card className="d-flex p-2 m-2 flex-column justify-content-center">
+                <TituloCard className="d-flex justify-content-center align-items-center">{nome}</TituloCard>
 
-                <PrecoXbox theme={theme} className="text-center font-weight-bold">{preco}</PrecoXbox>
+                <ImgCard className="text-capitalize" src={typeof (imagem) == null ? ImgNotFound : imagem} alt={"Imagem do jogo " + nome} />
 
-                {/* <InfoBox className=""> */}
-                    {/* <div className="descricao">
-                        <p>O jogo se passa na terra de Lothric, muitos anos após Dark Souls, dessa vez mundo está muito perto de chegar à plena escuridão porque o lorde dessa época não acendeu a Primeira Chama novamente.</p>
-                    </div>
-                    <div className="add_cart_xbox">adicionar ao carrinho</div> */}
-                {/* </InfoBox> */}
-            </BoxJogos>
+                <PrecoCard theme={theme} className="text-center font-weight-bold">R$ {preco}</PrecoCard>
+
+                <InfoCard className="d-flex flex-column text-white justify-content-end position-absolute p-2 text-center">
+                    <DescricaoCard className="p-2">
+                        <p>{descricao}</p>
+                    </DescricaoCard>
+
+                    <AddCart className="p-2 w-100" theme={theme}>adicionar ao carrinho</AddCart>
+                </InfoCard>
+                
+            </Card>
         )
     }
 

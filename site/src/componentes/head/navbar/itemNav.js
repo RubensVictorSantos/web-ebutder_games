@@ -12,27 +12,27 @@ export class ItemNav extends Component {
 
         switch (id) {
             case 1:
-                cor = "#39ac46"
+                cor = { id:id, cor:"#39ac46"}
 
                 break;
             case 2:
-                cor = "#0052cc"
+                cor = { id:id, cor:"#0052cc"}
 
                 break;
             case 3:
-                cor = "#ff3333"
+                cor = { id:id, cor:"#ff3333"}
 
                 break;
 
             default:
-                cor = "black"
+                cor = { id:id, cor:"black"}
 
                 break;
         }
 
         return ( 
-            <li className="nav-item dropdown" >
-                <LinkNav cor={cor} className="nav-link text-white dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li className="nav-item dropdown">
+                <LinkNav cor={cor.cor} className="nav-link text-white border-0 dropdown-toggle pl-2" to="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {nome}
                 </LinkNav>
                 <DropdownMenu key={id} id_console={id} cor={cor} />

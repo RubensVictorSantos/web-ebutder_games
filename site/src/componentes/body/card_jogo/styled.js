@@ -1,109 +1,92 @@
 import styled from 'styled-components'
 
-export const color = {greenXbox: "", redNintendo: ""} 
-
-export const InfoBox = styled.div`
+export const InfoCard = styled.div`
     height: 390px;
     width: 250px;
 	font-family: sans-serif;
-    font-size: 20px;
-	font-weight: bold;
+    font-size: 1.1rem;
 	margin-left: -10px;
-	padding-top:10px;
-	padding-bottom:10px;
-	padding-left:10px;
-	padding-right:10px;
-    position: absolute;
     background-color:rgba(0,0,0,0.4);
     opacity:0;
-	text-align:center;
-    visibility:hidden;
-    box-sizing: border-box;
-    overflow: hidden
+    overflow: hidden;
+
+    @media(max-width: 500px) {
+        width: 100px;
+        height: 150px;
+        display: none!important;
+        
+    }
 `
+export const ImgCard = styled.img`
 
-export const BoxJogos = styled.div`
-	background-color: #f2f2f2;
-    border-radius: 2%;
-    ${InfoBox}:hover &{
+    height: 295px;
+    width: 230px;
 
-        opacity:1;
-        margin-top: -380px;
-        margin-left: -10px;
-        color:white;
-        transition: 0.6s;
-        visibility: visible;
-        color: white;
-
+    @media(max-width: 500px) {
+        width: 100px;
+        height: 150px;
+        
     }
 `
 
-export const TituloJogo = styled.div`
+export const Card = styled.div`
+	background-color: #f2f2f2;
+    border-radius: 2%;
+    
+    ${InfoCard}:hover {
+        opacity:1;
+
+    }
+
+    @media(max-width: 500px) {
+        padding: 0rem!important;
+        margin: 0rem!important;
+        border-radius: 0;
+        
+    }
+
+`
+
+export const TituloCard = styled.div`
     height: 45px;
     max-width: 230px;
     color: black;
-	font-size:15px;
+	font-size:1rem;
 	font-family: sans-serif;
     text-align: center;
 	background-color:white;
     font-weight: bold;
     box-sizing: border-box;
+
+    @media(max-width: 500px) {
+        display: none!important;
+        
+    }
+
+
 `
 
-export const PrecoXbox = styled.div`
+export const PrecoCard = styled.div`
     height:30px;
     width: 230px;
     font-family: sans-serif;
 	background-color: white;
-	color:${props => props.theme || "black"};
+    color:${props => props.theme || "black"};
+    
+    @media(max-width: 500px) {
+        display: none!important;
+        
+    }
 `
 
-// export const InfoBox = styled.div`
-//     height: 390px;
-//     width: 250px;
-// 	font-family: sans-serif;
-//     font-size: 20px;
-// 	font-weight: bold;
-// 	margin-left: -10px;
-// 	padding-top:10px;
-// 	padding-bottom:10px;
-// 	padding-left:10px;
-// 	padding-right:10px;
-//     position: absolute;
-//     background-color:rgba(0,0,0,0.4);
-//     opacity:0;
-// 	text-align:center;
-//     visibility:hidden;
-//     box-sizing: border-box;
-//     overflow: hidden
-// `
+export const DescricaoCard = styled.div`
+	width:100%;
+	height:82%;
+	background-color:rgba(0,0,0,0.5);
+`
 
-// .descricao{
-// 	width:100%;
-// 	height:82%;
-// 	background-color:rgba(0,0,0,0.5);
-// }
-// .add_cart_xbox{
-// 	text-align:center;
-// 	margin-bottom:5px;
-// 	width:100%;
-// 	height:13%;
-// 	padding-top:10px;
-// 	background-color:#39ac46;
-// 	color:white;
-// 	box-sizing:border-box;
-// 	border-radius: 2%;
-// }
+export const AddCart = styled.div`
+	background-color:${props => props.theme};
+`
 
-// .box_jogos:hover > .ts{
-    
-    // opacity:1;
-    // margin-top: -380px;
-    // margin-left: -10px;
-    // color:white;
-    // transition: 0.6s;
-    // visibility: visible;
-    // color: white;
-// }
-
-export default BoxJogos
+export default Card

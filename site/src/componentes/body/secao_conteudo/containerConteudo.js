@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import $ from 'jquery';
 
 import TituloSession from './styled'
-import CardJogo from "../card_jogo/CardJogo";
+import CardJogo from "../card_jogo/cardJogo";
 
 export class ContainerConteudo extends Component {
 
@@ -41,7 +41,8 @@ export class ContainerConteudo extends Component {
     render() {
 
         const id = this.props.console.id_console;
-        let theme = ''
+        const nome = this.props.console.nome;
+        var theme = ''
 
         switch (id) {
             case 1:
@@ -62,8 +63,8 @@ export class ContainerConteudo extends Component {
             <div className="container p-0" style={{ backgroundColor: "#0a0a0c" }}>
                 <div className="container-fluid p-0">
 
-                    <TituloSession theme={theme} className=" text-center text-white" style={{ fontSize: "2.2rem", fontWeight: "bold" }}>
-                        {this.props.console.nome}
+                    <TituloSession theme={theme} className="text-center text-white p-1">
+                        {nome}
                     </TituloSession>
                 </div>
                 <div className="d-flex flex-wrap justify-content-center p-2">

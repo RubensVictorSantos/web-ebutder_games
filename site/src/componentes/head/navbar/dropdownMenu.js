@@ -41,12 +41,13 @@ export class DropdownMenu extends Component {
     render() {
 
         const consoleVariante = this.state.consoleVariante
+        let cor = this.props.cor;
 
         return (
-            <div className="dropdown-menu rounded-0 m-0 p-0" style={{ backgroundColor: "black" }} >
+            <div className="dropdown-menu border-0 rounded-0 m-0 p-0" style={{ backgroundColor: cor.cor }} >
                 {
                     consoleVariante.map(consoleVariante => (
-                        <DropdownItem key={consoleVariante.id_console_variante} cor={this.props.cor} consoleVariante={consoleVariante} />
+                        <DropdownItem key={consoleVariante.id_console_variante} cor={cor} consoleVariante={consoleVariante} />
                     ))
 
                 }
